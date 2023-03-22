@@ -51,11 +51,18 @@ Ansible Installation
       
 4)    Verify Python Version
          python --version
+         
+5)    sudo dnf install \https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
  
-5)    Install ansible using Yum 
+ // if it throws error then use hit below command then above epel command 
+ 
+      
+ 
+
+6)    Install ansible using Yum 
 sudo yum -y install ansible
       
-6)    Verify Ansible version
+7)    Verify Ansible version
        ansible --version
        
 =============================================================================
