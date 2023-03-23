@@ -182,4 +182,25 @@ Ex: 	ansible all -b -m shell -a df
 Ex: 	ansible all -b -m shell -a "df -h"
 	ansible all -b -m yum -a "name=vim"
 	
+6) Copy a file from source to destination 
+	ansible all -m service -a "src=test.txt dest=/tmp/test.txt 
+	
+7) to get server details or facts of server information 
+	ansible localhost -m setup
+	
+8) You can segregate groups as mentioned below and call 
+Ex: [webservers]
+    192.168.0.0
+    192.168.0.1
+    192.168.0.2
+    
+    [appservers]
+    192.168.0.3
+    192.168.0.4
+    192.168.0.5
+    
+    ansible webservers -m ping 
+    ansible appservers -m ping
+    
+	
 	
