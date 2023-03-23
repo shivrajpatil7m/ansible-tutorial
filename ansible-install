@@ -160,3 +160,12 @@ $ sudo yum install -y http://mirror.centos.org/centos/7/extras/x86_64/Packages/s
 	ansible all -b -m shell -a "uname"
 	ansible all -b -m shell -a "df -h"
 	
+5) NOTE: a command will get executed when you hit without double quotes an argument without option 
+Ex: 	ansible all -b -m shell -a df 
+	ansible all -b -m shell -a date
+	
+   but when you enter a command a with option then you need to use double quotes for an argument 
+Ex: 	ansible all -b -m shell -a "df -h"
+	ansible all -b -m yum -a "name=vim"
+	
+	
