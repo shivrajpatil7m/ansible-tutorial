@@ -152,7 +152,15 @@ $ sudo yum install -y http://mirror.centos.org/centos/7/extras/x86_64/Packages/s
 	ansible all -m ping 
 	
 3) in order to install a package in all target server 
-	ansible all -b -m yum -a "name=vim" 
+	1) ansible all -b -m yum -a "name=vim"
+		OR
+	   ansible all -b -m yum -a "name=vim state=present"
+	   
+	2) ansible all -b -m yum -a "name=httpd state=present"  // to install 
+	   ansible all -b -m yum -a "name=vim state=start"  	//  to start httpd 
+	   ansible all -b -m yum -a "name=vim state=absent"	// to un-install the httpd 
+	
+	
 4) other commands to know details of server
 	ansible all -b -m shell -a "uptime" 
 	ansible all -b -m shell -a "date"
