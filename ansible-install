@@ -157,9 +157,15 @@ $ sudo yum install -y http://mirror.centos.org/centos/7/extras/x86_64/Packages/s
 	   ansible all -b -m yum -a "name=vim state=present"
 	   
 	2) ansible all -b -m yum -a "name=httpd state=present"  // to install 
-	   ansible all -b -m service -a "name=vim state=start"  	//  to start httpd 
-	   ansible all -b -m yum -a "name=vim state=absent"	// to uninstall the httpd 
 	
+	   ansible all -b -m service -a "name=vim state=started"  	//  to start httpd
+	   ansible all -b -m service -a "name=vim state=stopped"  	//  to stop httpd
+	   ansible all -b -m service -a "name=vim state=restarted"  	//  to restart httpd
+	   
+	   ansible all -b -m yum -a "name=vim state=absent"	// to uninstall the httpd
+	   		OR
+	   ansible all -b -m yum -a "name=vim state=removed"	// to uninstall the httpd
+	   
 	
 4) other commands to know details of server
 	ansible all -b -m shell -a "uptime" 
