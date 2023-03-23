@@ -78,7 +78,7 @@ ssh-keygen
 
           ssh-copy-id ansible@<HostIP>
 
- 
+ // this will copy the autorized keys into target server 
 
 Update Host Inventory in Ansible Server to add host servers’ details.
 
