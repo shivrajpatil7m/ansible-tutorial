@@ -202,5 +202,12 @@ Ex: [webservers]
     ansible webservers -m ping 
     ansible appservers -m ping
     
+9) you can create custom ansible host file and call 
+    sudo vi /etc/ansible/facebook
+    192.168.0.0                          // add the ip 
+    :wq
+    
+    ansible -i /etc/ansible/facebook all -m ping
+    
 	
 	
