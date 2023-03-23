@@ -209,5 +209,11 @@ Ex: [webservers]
     
     ansible -i /etc/ansible/facebook all -m ping
     
+10) you can set a custom host file as parmanent using environment variable but ansible will not recommend to create 
+
+    export ANSIBLE_HOSTS=/etc/ansible/amazon
+    
+    
+    
 	
 	
