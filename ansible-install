@@ -153,4 +153,10 @@ $ sudo yum install -y http://mirror.centos.org/centos/7/extras/x86_64/Packages/s
 	
 3) in order to install a package in all target server 
 	ansible all -b -m yum -a "name=vim" 
+4) other commands to know details of server
+	ansible all -b -m shell -a "uptime" 
+	ansible all -b -m shell -a "date"
+	ansible all -b -m shell -a "cat /etc/*release"
+	ansible all -b -m shell -a "uname"
+	ansible all -b -m shell -a "df -h"
 	
