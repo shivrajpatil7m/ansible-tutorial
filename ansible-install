@@ -62,6 +62,10 @@ sudo yum -y install ansible
 7)    Verify Ansible version
        ansible --version
        
+8) in order run commands without sudo 
+	sudo chown -R ansible:ansible /etc/ansible/
+	sudo chown -R ansible:ansible /home/ansible/
+       
 =============================================================================
                Generate SSH Key, Copy SSH Key(Ansible Server)
 =============================================================================
@@ -131,3 +135,22 @@ vi  /etc/ansible/hosts
 "to use the 'ssh' connection type with passwords, you must install the sshpass program
 
 $ sudo yum install -y http://mirror.centos.org/centos/7/extras/x86_64/Packages/sshpass-1.06-2.el7.x86_64.rpm
+
+// to see ansible modules 
+	ansible-doc -l
+// to see specific module 
+	ansible-doc yum 
+// displaying output in one line 
+	ansible all -m ping -o
+	
+// in order to add local host into ansible host file means 
+
+1) copy the ssh-id 
+	ssh-copy-id ansible@localhost
+	
+2) then try to connect 
+	ansible all -m ping 
+	
+3) in order to install a package in all target server 
+	ansible all -b -m yum -a "name=vim" 
+	
