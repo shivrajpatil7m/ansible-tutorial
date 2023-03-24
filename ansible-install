@@ -213,6 +213,23 @@ Ex: [webservers]
 
     export ANSIBLE_HOSTS=/etc/ansible/amazon
     
+PLAYBOOKS
+1) writing first playbook 
+	pingserver.yml
+	---
+	- hosts: all
+	  tasks:
+	   - name: ping servers
+	     ping:
+	...
+	
+NOTE: before running the playbook verify the indentation whether written script is correct or not by using below command and once dry run 
+	1) syntax check command 
+		ansible-playbook pingserver.yml --syntax-check
+	2) Dry run 
+		ansible-playbook pingserver.yml --check
+
+    
     
     
 	
