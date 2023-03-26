@@ -86,6 +86,8 @@ ssh-keygen
 
 Update Host Inventory in Ansible Server to add host servers’ details.
 
+#####There are three ways to connect target servers#####
+
 1)    Add Host Server details
 
  
