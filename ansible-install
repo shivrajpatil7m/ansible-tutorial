@@ -230,6 +230,9 @@ NOTE: before running the playbook verify the indentation whether written script 
 		ansible-playbook pingserver.yml --syntax-check
 	2) Dry run 
 		ansible-playbook pingserver.yml --check
+		
+	3) to know ansible commands with options 
+		ansible-playbook --help
 
     
     
