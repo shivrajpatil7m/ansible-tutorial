@@ -62,8 +62,12 @@ tasks:
     src: index.html
     dest: /var/www/html/index.html
     
-4) Passing variable runtime
+4) Passing variable runtime with  single variable
 
    # ansible-playbook httpwithtemplatemodule.yml --extra-vars companyName=Mithuntechnologies
+5) passing multiple variable
+
+   # ansible-playbook httpwithtemplatemodule.yml --extra-vars "companyName=Mithuntechnologies location=bangalore"
+  
     
     
