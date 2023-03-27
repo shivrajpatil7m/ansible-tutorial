@@ -1,0 +1,65 @@
+PLAYBOOKS
+1) writing first playbook 
+	pingserver.yml
+	---
+	- hosts: all
+	  tasks:
+	   - name: ping servers
+	     ping:
+	...
+	
+NOTE: before running the playbook verify the indentation whether written script is correct or not by using below command and once dry run 
+	1) syntax check command 
+		ansible-playbook pingserver.yml --syntax-check
+	2) Dry run 
+		ansible-playbook pingserver.yml --check
+		
+	3) to know ansible commands with options 
+		ansible-playbook --help
+    
+2) install http with copy module
+
+    # httpwithcopymodule.yml
+      --- 
+hosts: all 
+become: true 
+tasks: 
+ - name: install apache HTTP server
+   yum:
+    name: httpd
+    state: latest
+ - name: copy index.html
+    copy:
+    src: index.html
+    dest: /var/www/html/index.html
+ - name: Start the APache HTTP Server
+   service: 
+    name: httpd
+    state: started
+    enabled: true
+    
+3) Install http with template module with dynamic variables
+ 
+   # httpwithtemplatemodule.yml
+     --- 
+hosts: all 
+become: true 
+vars:
+ companyname: MithunTechnolgies
+ location: Bangalore
+tasks: 
+ - name: install apache HTTP server
+   yum:
+    name: httpd
+    state: latest
+ - name: Start the APache HTTP Server
+   service: 
+    name: httpd
+    state: started
+    enabled: true
+ - name: copy index.html
+   template:
+    src: index.html
+    dest: /var/www/html/index.html
+    
+    
