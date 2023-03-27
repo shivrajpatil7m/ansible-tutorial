@@ -62,4 +62,8 @@ tasks:
     src: index.html
     dest: /var/www/html/index.html
     
+4) Passing variable runtime
+
+   # ansible-playbook httpwithtemplatemodule.yml --extra-vars companyName=Mithuntechnologies
+    
     
