@@ -68,6 +68,19 @@ tasks:
 5) passing multiple variable
 
    # ansible-playbook httpwithtemplatemodule.yml --extra-vars "companyName=Mithuntechnologies location=bangalore"
+   
+   
+6) playbook on debug module 
+   # ---
+- hosts: all
+  become: true
+   vars: mithuntech
+
+- tasks: 
+   name: display the variable value 
+   debug: 
+    msg: "the variable value name is {{name}}"
+...
   
     
     
