@@ -1,0 +1,18 @@
+--- 
+hosts: all 
+become: true 
+tasks: 
+ - name: install apache HTTP server
+   yum:
+    name: httpd
+    state: latest
+ - name: copy index.html
+    copy:
+    src: index.html
+    dest: /var/www/html/index.html
+ - name: Start the APache HTTP Server
+   service: 
+    name: httpd
+    state: started
+    enabled: true
+...
