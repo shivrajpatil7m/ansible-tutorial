@@ -71,7 +71,8 @@ tasks:
    
    
 6) playbook on debug module 
-   # ---
+   # debug.yml
+---
 - hosts: all
   become: true
    vars: mithuntech
@@ -81,6 +82,67 @@ tasks:
    debug: 
     msg: "the variable value name is {{name}}"
 ...
+
+7) using handlers
+   # handlers.yml
+--- 
+- hosts: all 
+  become: true 
+   vars:
+    companyname: MithunTechnolgies
+    location: Bangalore
+  tasks: 
+   - name: install apache HTTP server
+     yum:
+      name: httpd
+      state: latest
   
+   - name: copy index.html
+     template:
+      src: index.html
+      dest: /var/www/html/index.html
+  nodify: 
+   - Re-Start the APache HTTP Server
+  handlers:
+   - name: Re-Start the APache HTTP Server
+     service: 
+      name: httpd
+      state: restarted
+      enabled: true
+...
+
+8) having variables in a separate playbook
+  # variable.yml
+  	companyName: Mithun Tech
+  	location: Bangalore
+  
+  # variablemodule.yml
+--- 
+- hosts: all 
+  become: true 
+  vars_files:
+   - variable.yml
+  tasks: 
+   - name: install apache HTTP server
+     yum:
+      name: httpd
+      state: latest
+  
+   - name: copy index.html
+     template:
+      src: index.html
+      dest: /var/www/html/index.html
+  nodify: 
+   - Re-Start the APache HTTP Server
+  handlers:
+   - name: Re-Start the APache HTTP Server
+     service: 
+      name: httpd
+      state: restarted
+      enabled: true
+...
+
+
+
     
     
